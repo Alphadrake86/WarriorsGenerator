@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WarriorGen</title>
+    <script src="/script.js"></script>
+    <script>
+        var genAll = function(){
+            displayIdentity(generateIdentity())
+            displayStats(generateStats())
+        }
+    </script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1 class = "fs1">
+        Warrior Cat Generator v2.15 <br>
+        <button onclick="genAll()">Generate!</button>
+    </h1>
+    <h2 id = "identity" class = "fs3">
+        Identity:
+        <button onclick="displayIdentity(generateIdentity())">Reroll</button>
+        <div id = "gender" class = "fs2">Gender:</div>
+        <div id = "clan" class = "fs2">Clan:</div>
+        <div id = "age" class = "fs2">Age:</div>
+        
+    </h2>
+    
+    <h2 id = "stats" class = "fs3">
+        Stats:
+        <button onclick="displayStats(generateStats())">Reroll</button>
+        <div id = "str" class = "fs2">Strength:</div>
+        <div id = "spd" class = "fs2">Speed:</div>
+        <div id = "end" class = "fs2">Endurance</div>
+        <div id = "atk" class = "fs2">Attack:</div>
+        <div id = "def" class = "fs2">Defense:</div>
+        <div id = "tac" class = "fs2">Tactics:</div>
+        <div id = "avg" class = "fs2">Total:</div>
+    </h2>
+</body>
+</html>

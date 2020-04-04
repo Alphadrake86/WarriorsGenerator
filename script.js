@@ -147,7 +147,7 @@ var generateFeatures = function(){
     var dbts = 0
     var i = rand(1,20)
     if(i>12) {dbts = 1}
-    else if(i>17) {dbts = 2}
+    if(i>17) {dbts = 2}
 
     var disabilities = []
     while(disabilities.length<dbts){

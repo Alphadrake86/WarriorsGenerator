@@ -118,3 +118,105 @@ var displayStats = function(stats){
     $("tac").innerHTML= "Tactics:  " + stats[5]
     $("avg").innerHTML= "Total: " + stats[6]
 }
+
+var generateFeatures = function(){
+    var features = []
+    var builds = ["Thin, lithe, light",
+                "Short, stocky, broad",
+                "Tall, fit, lanky",
+                "Thick, muscled, heavy"]
+    features.push(builds[rand(0,builds.length-1)])
+
+    var eyecolordata = ["Navy",
+                    "Blue",
+                    "Ice",
+                    "Aquamarine",
+                    "Green",
+                    "Chartreuse",
+                    "Yellow",
+                    "Orange",
+                    "Amber",
+                    "Caramel",
+                    "Russet",
+                    "Silver"]
+    
+    var eyecolors = [eyecolordata[rand(0,eyecolordata.length-1)]]
+
+    var dbts = 0
+    var i = rand(1,20)
+    if(i>12) {dbts = 1}
+    else if(i>17) {dbts = 2}
+
+    var disabilities = []
+    while(disabilities.length<dbts){
+        var db = weightedDisability()
+        if(!disabilities.includes(db)) disabilities.push(db)
+    }
+
+    disabilities.forEach(function(val, index, arr){
+        if(val == "eyes"){
+            var i = rand(1,20)
+            if(i<= 8){
+                arr[index] = "Heterochromia"
+                eyecolors.push(eyecolors[0])
+                var nc = eyecolordata[rand(0,eyecolordata.length-1)]
+                while(eyecolors.includes(nc)) nc = eyecolordata[rand(0,eyecolordata.length-1)]
+                eyecolors[rand(0,1)] = nc
+            }
+            else if(i<=16){
+                eyecolors.push(eyecolors[0])
+                var eye = rand(0,1)
+                var type = rand(0,1)
+                arr[index] = type==0 ? "Half Blind" : "Missing Eye"
+                eyecolors[eye] = type==0 ? "Milky" : "Missing"
+            } 
+            else {
+                if(rand(1,3)<2)eyecolors[0] = "Milky"
+                arr[index] = "Blind"
+            }
+        }
+        else if(val == "deaf"){
+            var i = rand(1,10)
+            arr[index] = i<8 ? "Half Deaf" : "Deaf"
+        }
+    })
+    features.push(eyecolors)
+    features.push(disabilities)
+    return features
+}
+
+var displayFeatures = function(features){
+    $("body").innerHTML = "Body type: " + features[0]
+    if(features[1].length == 1){
+        $("eyes").innerHTML = "Eye color: " + features[1][0]
+    }
+    else{
+        $("eyes").innerHTML = "Left eye: " + features[1][0] + "<br>Right eye: " + features[1][1]
+    }
+
+    if(features[2].length == 0){
+        $("scars").innerHTML = "Scars: None"
+    }
+    else if(features[2].length == 1){
+        $("scars").innerHTML = "Scars: " + features[2][0]
+    }
+    else{
+        $("scars").innerHTML = "Scars: " + features[2][0] + " and " + features[2][1]
+    }
+}
+
+var weightedDisability = function(){
+    var i = rand(0,100)
+    if(i<15) return "Ear Nick"
+    if(i<30) return "Facial Scars"
+    if(i<45) return "Flank Scars"
+    if(i<65) return "eyes"
+    if(i<70) return "Tailless"
+    if(i<77) return "deaf"
+    if(i<80) return "Mute"
+    if(i<84) return "Lame leg"
+    if(i<85) return "Missing leg"
+    if(i<87) return "Hairless"
+    if(i<92) return "Twisted paw"
+    return "Unlucky"
+}

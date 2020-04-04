@@ -17,9 +17,9 @@ var generateIdentity = function(){
             identity.push("She-cat")
     }
 
-    switch(rand(1,12)){
+    switch(rand(1,11)){
         case 1:
-            identity.push("No Clan")
+            identity.push("Rogue")
             break
         case 2:
             identity.push("Kittypet")

@@ -110,7 +110,7 @@ var generateStats = function(){
 }
 
 var displayStats = function(stats){
-    $("str").innerHTML= "Speed: " + stats[0]
+    $("str").innerHTML= "Strength: " + stats[0]
     $("spd").innerHTML= "Speed: " + stats[1]
     $("end").innerHTML= "Endurance: " + stats[2]
     $("atk").innerHTML= "Attack: " + stats[3]
@@ -168,10 +168,10 @@ var generateFeatures = function(){
                 var eye = rand(0,1)
                 var type = rand(0,1)
                 arr[index] = type==0 ? "Half Blind" : "Missing Eye"
-                eyecolors[eye] = type==0 ? "Milky" : "Missing"
+                eyecolors[eye] = type==0 ? "Cloudy " : "Missing"
             } 
             else {
-                if(rand(1,3)<2)eyecolors[0] = "Milky"
+                if(rand(1,3)<2)eyecolors[0] = "Cloudy"
                 arr[index] = "Blind"
             }
         }

@@ -93,17 +93,19 @@ var displayIdentity = function(identity){
 
 var generateStats = function(){
     var avg = 0
-    var stats = [rand(1,12),rand(1,12),rand(1,12),rand(1,12),rand(1,12),rand(1,12)]
+    var stats = [rand(1,20),rand(1,20),rand(1,20),rand(1,20),rand(1,20),rand(1,20)]
     stats.forEach(function(item) {
         avg+=item
     });
     stats.push(avg/6)
     stats.forEach(function(item, index, arr) {
         lvl = "Terrible"
-        if(item>=2) lvl = "Poor"
-        if(item>=6) lvl = "Average"
-        if(item>=7) lvl = "Great"
-        if(item>=10) lvl = "Excellent"
+        if(item>=3) lvl = "Bad"
+        if(item>=6) lvl = "Poor"
+        if(item>=9) lvl = "Average"
+        if(item>=13) lvl = "Good"
+        if(item>=16) lvl = "Great"
+        if(item>=19) lvl = "Excellent"
         arr[index] = lvl
     });
     return stats

@@ -195,13 +195,13 @@ var displayFeatures = function(features){
     }
 
     if(features[2].length == 0){
-        $("scars").innerHTML = "Scars: None"
+        $("scars").innerHTML = "Scars/Disabilities: None"
     }
     else if(features[2].length == 1){
-        $("scars").innerHTML = "Scars: " + features[2][0]
+        $("scars").innerHTML = "Scars/Disabilities: " + features[2][0]
     }
     else{
-        $("scars").innerHTML = "Scars: " + features[2][0] + " and " + features[2][1]
+        $("scars").innerHTML = "Scars/Disabilities: " + features[2][0] + " and " + features[2][1]
     }
 }
 

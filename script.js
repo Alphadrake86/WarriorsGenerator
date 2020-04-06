@@ -88,7 +88,7 @@ var generateIdentity = function(){
 var displayIdentity = function(identity){
     $("gender").innerHTML = "  Gender: " + identity[0]
     $("clan").innerHTML =   "    Clan: " + identity[1]
-    $("age").innerHTML =    "     Age: " + identity[2]
+    $("age").innerHTML =    "     Age/Rank: " + identity[2]
 }
 
 var generateStats = function(){

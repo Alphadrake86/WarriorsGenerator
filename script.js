@@ -8,80 +8,44 @@ var $ = function(id){
 }
 
 var generateIdentity = function(){
-    var identity = [];
-    switch(rand(1,2)){
-        case 1:
-            identity.push("Tom")
-            break
-        case 2:
-            identity.push("She-cat")
-    }
+var identity = [];
+    rand(1,2)==1?
+        identity.push("Tom"):
+        identity.push("She-cat")
+    
+    var i = rand(1,110)
+    a = "ThunderClan"
+    if(i>20) a = "ShadowClan"
+    if(i>40) a = "RiverClan"
+    if(i>60) a = "WindClan"
+    if(i>80) a = "Rogue"
+    if(i>90) a = "Kittypet"
+    if(i>100) a = "Skyclan"
+    if(i>110) a = "Tribe of Rushing Waters"
+    identity.push(a)
 
-    switch(rand(1,11)){
-        case 1:
-            identity.push("Rogue")
-            break
-        case 2:
-            identity.push("Kittypet")
-            break
-        case 3:
-        case 4:
-            identity.push("ThunderClan")
-            break
-        case 5:
-        case 6:
-            identity.push("RiverClan")
-            break
-        case 7:
-        case 8:
-            identity.push("WindClan")
-            break
-        case 9:
-        case 10:
-            identity.push("ShadowClan")
-            break
-        case 11:
-            identity.push("SkyClan")
-            break
-        case 12:
-            identity.push("Tribe of Rushing Waters")
-            break
+    var age = rand(1,18)
+    
+    if(identity[1] == "Kittypet" || identity[1] == "Rogue"){
+        rank = "Old"
+        if(age<=15) identity[2] = "Adult"
+        if(age<=5) identity[2] = "Kitten"
+    } else {
+        if(age<=1) rank = "Kit"
+        else if (age<=4) rank = "Apprentice"
+        else if (age<=14) rank = "Warrior"
+        else if (age<=17) rank = "Senior warrior"
+        else rank = "Elder"
+
+        if(age<13 && age>6 && identity[0]=="She-cat" && i%10 < 5) rank = "Queen"
+
+        if(age>10 && age<17 && rand(1,3)<2){
+            if(i%10<=3) {rank = "Medicine cat"}
+            else if(i%10<=6) {rank = "Deputy"}
+            else {rank = "Leader"}
+        }
     }
-    var i = rand(1,13)
-    switch(i){
-        case 1:
-            identity.push("Kit")
-            break
-        case 2:
-        case 3:
-            identity.push("Apprentice")
-            break
-        case 4:
-        case 5:
-        case 6:
-        case 7:
-            identity.push("Warrior")
-            break
-        case 9:
-        case 8:
-            identity.push(identity[0] == "Tom" ? "Warrior" : "Queen")
-            break
-        case 10:
-            identity.push("Medicine Cat")
-            break
-        case 11:
-            identity.push("Deputy")
-            break
-        case 12:
-            identity.push("Leader")
-            break
-        case 13:
-            identity.push("Elder")
-    }
-    if(identity[1] == "Kittypet" || identity[1] == "No Clan"){
-        if(i<=12) identity[2] = "Adult"
-        if(i<=3) identity[2] = "Kitten"
-    }
+    identity.push(rank)
     return identity
 }
 

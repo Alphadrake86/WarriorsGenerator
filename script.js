@@ -98,6 +98,7 @@ var generateStats = function(){
         avg+=item
     });
     stats.push(avg/6)
+    var statdata = stats
     stats.forEach(function(item, index, arr) {
         lvl = "Terrible"
         if(item>=3) lvl = "Bad"
@@ -108,7 +109,7 @@ var generateStats = function(){
         if(item>=19) lvl = "Excellent"
         arr[index] = lvl
     });
-    return stats
+    return [stats,statdata]
 }
 
 var displayStats = function(stats){

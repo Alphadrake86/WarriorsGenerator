@@ -113,13 +113,13 @@ var generateStats = function(){
 }
 
 var displayStats = function(stats){
-    $("str").innerHTML= "Strength: " + stats[0]
-    $("spd").innerHTML= "Speed: " + stats[1]
-    $("end").innerHTML= "Endurance: " + stats[2]
-    $("atk").innerHTML= "Attack: " + stats[3]
-    $("def").innerHTML= "Defense " + stats[4]
-    $("tac").innerHTML= "Tactics:  " + stats[5]
-    $("avg").innerHTML= "Total: " + stats[6]
+    $("str").innerHTML= "Strength: " + stats[0][0]
+    $("spd").innerHTML= "Speed: " + stats[0][1]
+    $("end").innerHTML= "Endurance: " + stats[0][2]
+    $("atk").innerHTML= "Attack: " + stats[0][3]
+    $("def").innerHTML= "Defense " + stats[0][4]
+    $("tac").innerHTML= "Tactics:  " + stats[0][5]
+    $("avg").innerHTML= "Total: " + stats[0][6]
 }
 
 var generateFeatures = function(){
@@ -206,6 +206,81 @@ var displayFeatures = function(features){
     else{
         $("scars").innerHTML = "Scars/Disabilities: " + features[2][0] + " and " + features[2][1]
     }
+}
+var generatePersonalities = function(){
+    var personality = [[],[],[]]
+
+    var positive = [
+        "Attractive",
+        "Brave",
+        "Anticipative",
+        "Positive",
+        "Subtle",
+        "Shrewd",
+        "Spontaneous",
+        "Suave",
+        "Tolerant",
+        "Consistent",
+        "Kind",
+        "Uncomplaining"
+    ]
+    
+    var neutral = [
+        "Enigmatic",
+        "Cautious",
+        "Competitive",
+        "Modest",
+        "Unpredictable",
+        "Determined",
+        "Physical",
+        "Proud",
+        "Lively",
+        "Unsentimental",
+        "Solitary"
+    ]
+    
+    var negative = [
+        "Abrasive",
+        "Conceited",
+        "Cold",
+        "Crass",
+        "Extreme",
+        "Foolish",
+        "Greedy",
+        "Gullible",
+        "Hateful",
+        "Impatient",
+        "Naive",
+        "Violent"
+    ]
+
+    var picktraits = function(disposition){
+        var traits = []
+        var num = rand(1,2)
+        while(traits.length<num){
+            var trait = disposition[rand(1,disposition.length-1)]
+            if(!traits.includes(trait)){
+                traits.push(trait)
+            }
+        }
+        return traits;
+    }
+
+    personality[0] = picktraits(positive)
+    personality[1] = picktraits(neutral)
+    personality[2] = picktraits(negative)
+
+    return personality
+}
+
+var displayPersonalities = function(personality){
+    var stringgen = function(arr){
+        if(arr.length == 2) return arr[0] + " and " + arr[1]
+        return arr[0]
+    }
+    $("pos").innerHTML = "Positive traits: " + stringgen(personality[0])
+    $("neu").innerHTML = "Neutral traits: " + stringgen(personality[1])
+    $("neg").innerHTML = "Negative traits: " + stringgen(personality[2])
 }
 
 var weightedDisability = function(){

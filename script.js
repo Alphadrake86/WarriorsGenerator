@@ -183,6 +183,9 @@ var generateFeatures = function(){
             arr[index] = i<8 ? "Half Deaf" : "Deaf"
         }
     })
+    if(disabilities.includes("Blind") && disabilities.includes("Facial Scars")){
+        eyecolors[0] = "Missing"
+    }
     features.push(eyecolors)
     features.push(disabilities)
     return features

@@ -157,6 +157,7 @@ var generateFeatures = function(){
 }
 
 var displayFeatures = function(features){
+    $("fur").innerHTML = "Fur: " + features[3]
     $("body").innerHTML = "Body type: " + features[0]
     if(features[1].length == 1){
         $("eyes").innerHTML = "Eye color: " + features[1][0]

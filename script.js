@@ -207,7 +207,7 @@ var generateFur = function(){
 var generatePersonalities = function(){
     var personality = []
 
-    var traits = [[
+    var traits = [
         "Attractive",
         "Brave",
         "Anticipative",
@@ -219,26 +219,23 @@ var generatePersonalities = function(){
         "Tolerant",
         "Consistent",
         "Kind",
-        "Uncomplaining"
-    ], [
+        "Uncomplaining", 
         "Enigmatic",
-        "Cautious",
+        "Reliable",
+        ["Cautious", "Reckless"],
         "Competitive",
-        "Modest",
         "Unpredictable",
         "Determined",
         "Physical",
         "Proud",
         "Lively",
         "Unsentimental",
-        "Solitary"
-    ] ,
-    [
+        "Solitary",
         "Abrasive",
         "Conceited",
         "Cold",
         "Crass",
-        "Extreme",
+        ["Modest","Extreme"],
         "Foolish",
         "Greedy",
         "Gullible",
@@ -246,18 +243,15 @@ var generatePersonalities = function(){
         "Impatient",
         "Naive",
         "Violent"
-    ]]
+    ]
 
     var num = rand(1,2) + rand(1,2) + rand(1,2)
-    var i = 0;
+
     while(personality.length<num){
-        if(rand(1,3)>2){
-            pick = traits[i%3][rand(0,traits[i%3].length-1)]
-            if(!personality.includes(pick)){
-                personality.push(pick)
-            }
+        pick = traits[rand(0,traits.length-1)]
+        if(!personality.includes(pick)){
+            personality.push(pick) 
         }
-        i++
     }
 
     return personality
@@ -266,14 +260,21 @@ var generatePersonalities = function(){
 var displayPersonalities = function(personality){
     var stringgen = function(){
          text = "";
-        for(i = 0; i<personality.length-1; i++){
-            text += personality[i] + ", " + (i%2==1? "<br>" :"")
+        for(i = 0; i<personality.length; i++){
+            if(typeof(personality[i]) != typeof("")){
+                personality[i] = personality[i][rand(0,personality[i].length-1)]
+            }
+            text += personality[i] 
+            if(i<=personality.length-2) text += ", "
+            if(i == personality.length-2) text += "and "
+            if(i==1||i==3) text += "<br>"
             
         }
-        text += "and " + personality[personality.length-1]
+        
         return text
     }
-    $("pos").innerHTML =    stringgen()
+    $("pos").innerHTML =  stringgen()
+
 
 }
 

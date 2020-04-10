@@ -64,17 +64,19 @@ var generateStats = function(){
                "Great","Great+",
               "Excellent","Excellent+"]
     var avg = 0
-    var len = lvldata.length
-    var stats = [rand(1,len),rand(1,len),rand(1,len),rand(1,len),rand(1,len),rand(1,len)]
+    var len = lvldata.length-1
+    var stats = [rand(0,len),rand(0,len),rand(0,len),rand(0,len),rand(0,len),rand(0,len)]
     stats.forEach(function(item) {
         avg+=item
     });
     stats.push(Math.floor(avg/6))
-    var statdata = stats
+    var statdata = []
 
     stats.forEach(function(item, index, arr) {
+        statdata[index] = item
         arr[index] = lvldata[item]
     });
+    console.log(statdata)
     return [stats,statdata]
 }
 

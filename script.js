@@ -73,7 +73,7 @@ var generateStats = function(){
     var statdata = stats
 
     stats.forEach(function(item, index, arr) {
-        arr[index] = lvldata[lvl]
+        arr[index] = lvldata[item]
     });
     return [stats,statdata]
 }

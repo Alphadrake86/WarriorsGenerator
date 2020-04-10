@@ -56,7 +56,7 @@ var displayIdentity = function(identity){
 }
 
 var generateStats = function(){
-    lvldata = ["Terrible", "Terrible+"
+    lvldata = ["Terrible", "Terrible+",
               "Bad", "Bad+",
               "Poor","Poor+","Poor+",
               "Average","Average","Average+","Average+",

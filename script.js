@@ -56,22 +56,24 @@ var displayIdentity = function(identity){
 }
 
 var generateStats = function(){
+    lvldata = ["Terrible", "Terrible+"
+              "Bad", "Bad+",
+              "Poor","Poor+","Poor+",
+              "Average","Average","Average+","Average+",
+              "Good","Good","Good+",
+               "Great","Great+",
+              "Excellent","Excellent+"]
     var avg = 0
-    var stats = [rand(1,20),rand(1,20),rand(1,20),rand(1,20),rand(1,20),rand(1,20)]
+    var len = lvldata.length
+    var stats = [rand(1,len),rand(1,len),rand(1,len),rand(1,len),rand(1,len),rand(1,len)]
     stats.forEach(function(item) {
         avg+=item
     });
-    stats.push(avg/6)
+    stats.push(Math.floor(avg/6))
     var statdata = stats
+
     stats.forEach(function(item, index, arr) {
-        lvl = "Terrible"
-        if(item>=3) lvl = "Bad"
-        if(item>=6) lvl = "Poor"
-        if(item>=9) lvl = "Average"
-        if(item>=13) lvl = "Good"
-        if(item>=16) lvl = "Great"
-        if(item>=19) lvl = "Excellent"
-        arr[index] = lvl
+        arr[index] = lvldata[lvl]
     });
     return [stats,statdata]
 }

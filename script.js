@@ -11,11 +11,15 @@ var statq = function(){
     if($("q").innerHTML == "?"){
         $("q").innerHTML = "x"
         $("statbox").style.display = "none"
+        $("sreroll").style.display = "hidden"
+        $("sswap").style.display = "hidden"
         $("qbox").style.display = "block"
     }
     else {
         $("q").innerHTML = "?"
         $("qbox").style.display = "none"
+        $("sreroll").style.display = "block"
+        $("sswap").style.display = "block"
         $("statbox").style.display = "block"
     }
     

@@ -60,7 +60,7 @@ var displayIdentity = function(identity){
 var generateStats = function(words){
     var avg = 0
     var len = 24 // length of lvldata below
-    var statdata = [rand(0,len),rand(0,len),rand(0,len),rand(0,len),rand(0,len),rand(0,len)]
+    var statdata = [rand(0,len-1),rand(0,len-1),rand(0,len-1),rand(0,len-1),rand(0,len-1),rand(0,len-1)]
     statdata.forEach(function(item) {
         avg+=item
     });

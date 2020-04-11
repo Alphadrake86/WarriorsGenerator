@@ -4,14 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WarriorGen</title>
-    <script src="script.js"></script>
+    <script src="/script.js"></script>
     <script>
+        var cat = Cat
         var genAll = function(){
-            displayIdentity(generateIdentity())
-            displayStats(generateStats())
-            displayFeatures(generateFeatures())
-            displayPersonalities(generatePersonalities())
+            cat.reiden()
+            cat.restat()
+            cat.refeat()
+            cat.repers()
+            cat.refresh()
         }
+        
     </script>
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -22,33 +25,33 @@
     </h1>
     <h2 id = "identity" class = "fs3">
         Identity:
-        <button onclick="displayIdentity(generateIdentity())">Reroll</button>
+        <button onclick="cat.reiden();cat.refresh()">Reroll</button>
         <div id = "gender" class = "fs2">Gender:</div>
         <div id = "clan" class = "fs2">Clan:</div>
         <div id = "age" class = "fs2">Age/Rank:</div>
         
     </h2>
-    
-        <h2 id = "Appearence" class = "fs3">
+
+    <h2 id = "Appearence" class = "fs3">
         Appearance:
-        <button onclick="displayFeatures(generateFeatures())">Reroll</button>
-            <div id = "fur" class = "fs2">Fur: </div>
+        <button onclick="cat.refeat();cat.refresh()">Reroll</button>
+        <div id = "fur" class = "fs2">Fur: </div>
         <div id = "body" class = "fs2">Body type: </div>
         <div id = "eyes" class = "fs2">Eye color: </div>
-        <div id = "scars" class = "fs2">Scars/Disabilities:</div>
+        <div id = "scars" class = "fs2">Scars:</div>
     </h2>
-    
-    
+
     <h2 id = "Personality" class = "fs3">
-        Personality Traits:
-        <button onclick="displayPersonalities(generatePersonalities())">Reroll</button>
-        <div id = "pos" class = "fs2"></div>
+        Personality traits:
+        <button onclick="cat.repers();cat.refresh()">Reroll</button>
+        <div id = "pos" class = "fs2"> </div>
 
     </h2>
-    
+
     <h2 id = "stats" class = "fs3">
         Stats:
-        <button onclick="displayStats(generateStats())">Reroll</button>
+        <button onclick="cat.restat();cat.refresh()">Reroll</button>
+        <button onclick="cat.swapstats();cat.refresh()" style="border: none; background-color: white;">🔃</button>
         <div id = "str" class = "fs2">Strength:</div>
         <div id = "spd" class = "fs2">Speed:</div>
         <div id = "end" class = "fs2">Endurance</div>
@@ -58,4 +61,5 @@
         <div id = "avg" class = "fs2">Total:</div>
     </h2>
 </body>
+<script>genAll()</script>
 </html>

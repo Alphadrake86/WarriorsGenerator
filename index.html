@@ -52,6 +52,8 @@
         Stats:
         <button onclick="cat.restat();cat.refresh()">Reroll</button>
         <button onclick="cat.swapstats();cat.refresh()" style="border: none; background-color: white;">🔃</button>
+        <button onclick="statq()" id = "q">?</button>
+        <div id = "statbox">
         <div id = "str" class = "fs2">Strength:</div>
         <div id = "spd" class = "fs2">Speed:</div>
         <div id = "end" class = "fs2">Endurance</div>
@@ -59,6 +61,16 @@
         <div id = "def" class = "fs2">Defense:</div>
         <div id = "tac" class = "fs2">Tactics:</div>
         <div id = "avg" class = "fs2">Total:</div>
+        </div>
+        <div id = "qbox" class="fs2" style="display: none;">
+            Terrible - F - 1-2 <br>
+            Bad - E - 3-5 <br>
+            Poor - D - 6-9<br>
+            Average - C - 10-15<br>
+            Good - B - 16-19<br>
+            Great - A - 20-22<br>
+            Excellent - S - 23-24<br>
+        </div>
     </h2>
 </body>
 <script>genAll()</script>
